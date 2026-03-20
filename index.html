@@ -27,7 +27,7 @@
       --accent-dark: #0C4E54;
       --tag-bg:      #D6EFEF;
       --tag-text:    #0C4E54;
-      --header-bg:   #111210;
+      --header-bg:   #28283b;
       --font-head:   'Satoshi', system-ui, -apple-system, sans-serif;
       --font-body:   'Inter', system-ui, -apple-system, sans-serif;
     }
@@ -52,7 +52,7 @@
     header {
       background: var(--header-bg);
       color: #E8E6E0;
-      padding: 3rem 1.5rem 2.75rem;
+      padding: 2.5rem 1.5rem 2.25rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -67,51 +67,17 @@
       pointer-events: none;
     }
 
-    /* ── Logo + title lockup inside hero ─────────────────── */
-    .hero-lockup {
+    /* ── Hero logo (wide wordmark) ──────────────────────────── */
+    .hero-logo-wrap {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 1.25rem;
-      margin-bottom: 0.75rem;
+      align-items: center;
+      padding: 0.5rem 0 0.25rem;
     }
-    .hero-logo {
-      height: 96px;
-      width: 96px;
-      border-radius: 12px;
+    .hero-logo-img {
       display: block;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    /* On mobile, stack logo above title */
-    @media (max-width: 480px) {
-      .hero-lockup { flex-direction: column; gap: 0.75rem; }
-      .hero-logo   { height: 80px; width: 80px; }
-    }
-
-    .site-kicker {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(1,105,111,0.15);
-      border: 1px solid rgba(1,105,111,0.35);
-      border-radius: 999px;
-      padding: 0.25rem 0.85rem;
-      margin-bottom: 1.1rem;
-    }
-
-    header h1 {
-      font-family: var(--font-head);
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin: 0 0 0.75rem;
-      color: #F5F3EE;
+      width: min(520px, 90vw);
+      height: auto;
     }
 
     header .hero-sub {
@@ -371,13 +337,11 @@
 <body>
 
   <header>
-    <span class="site-kicker">UK Cycling Tech</span>
-    <div class="hero-lockup">
-      <img class="hero-logo"
-           src="/Blue%20Black%20Minimal%20Initial%20Letter%20Company%20Technology%20Logo.svg"
-           onerror="this.src='/Blue%20Black%20Minimal%20Initial%20Letter%20Company%20Technology%20Logo.png'"
-           alt="Cycling Tech Insights logo">
-      <h1>Cycling Tech Insights</h1>
+    <div class="hero-logo-wrap">
+      <img class="hero-logo-img"
+           src="/business%20cards%2030%20(Logo).svg"
+           onerror="this.src='/business%20cards%2030%20(Logo).png'"
+           alt="Cycling Tech Insights">
     </div>
     <p class="hero-sub">Independent analysis of AI training tools, smart hardware, and cycling tech — with a UK-first perspective.</p>
     <div class="hero-pills">
