@@ -2,100 +2,246 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cycling Tech Insights</title>
+  <title>Cycling Tech Insights — AI Tools, Gear Reviews &amp; UK Cycling Tech</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cycling Tech Insights – analysis, reviews, and AI tools for smarter, faster riding.">
+  <meta name="description" content="Independent analysis of cycling technology, AI training tools, and gear for UK riders. Honest reviews, buyer guides, and weekly tech roundups.">
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.5;
+      line-height: 1.6;
       color: #111827;
       background: #f3f4f6;
     }
+
+    /* Header */
     header {
       background: #111827;
       color: white;
-      padding: 1.5rem 1rem;
+      padding: 2rem 1rem 1.75rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
     }
     header p {
-      margin: 0.5rem 0 0;
-      font-size: 0.95rem;
-      opacity: 0.85;
+      margin: 0.6rem 0 0;
+      font-size: 1rem;
+      opacity: 0.8;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    .tag-line {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.5;
+    }
+
+    /* Layout */
     main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem 3rem;
+      max-width: 820px;
+      margin: 2.5rem auto;
+      padding: 0 1rem 4rem;
     }
-    .card {
+
+    /* Section headings */
+    .section-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin: 0 0 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Intro card */
+    .intro-card {
       background: white;
       border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),
-                  0 4px 6px -4px rgba(0,0,0,0.1);
+      padding: 1.75rem 2rem;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -4px rgba(0,0,0,0.07);
+      margin-bottom: 2.5rem;
     }
-    h2 {
-      margin-top: 0;
+    .intro-card h2 { margin-top: 0; font-size: 1.2rem; }
+    .intro-card ul { padding-left: 1.2rem; margin: 0.5rem 0 0; }
+    .intro-card li { margin-bottom: 0.3rem; color: #374151; }
+
+    /* Article cards */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
     }
-    ul {
-      padding-left: 1.2rem;
+    @media (min-width: 600px) {
+      .articles-grid { grid-template-columns: 1fr 1fr; }
     }
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #6b7280;
-      padding: 1.5rem 1rem 2rem;
+
+    .article-card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.4rem 1.5rem 1.6rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.15s;
     }
-    a {
+    .article-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    .tag {
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .article-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+    .article-card h3 a {
+      color: #111827;
+      text-decoration: none;
+    }
+    .article-card h3 a:hover { color: #2563eb; }
+
+    .article-card p {
+      margin: 0 0 1rem;
+      font-size: 0.88rem;
+      color: #4b5563;
+      flex: 1;
+    }
+
+    .read-link {
+      font-size: 0.85rem;
+      font-weight: 600;
       color: #2563eb;
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+    .read-link:hover { text-decoration: underline; }
+
+    /* Coming soon */
+    .coming-soon-card {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      opacity: 0.6;
     }
+    .coming-soon-card h3 { margin: 0 0 0.35rem; font-size: 1rem; color: #374151; }
+    .coming-soon-card p { margin: 0; font-size: 0.85rem; color: #6b7280; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      padding: 1.5rem 1rem 2.5rem;
+    }
+
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Cycling Tech Insights</h1>
-    <p>Independent insights on cycling technology, AI tools, and gear to help you ride smarter and faster.</p>
+    <p>Independent analysis of AI training tools, smart hardware, and cycling tech — with a UK-first perspective.</p>
+    <span class="tag-line">Reviews &middot; Buyer Guides &middot; AI Tools</span>
   </header>
 
   <main>
-    <section class="card">
-      <h2>Welcome to Cycling Tech Insights</h2>
+
+    <!-- Intro -->
+    <div class="intro-card">
+      <h2>About this site</h2>
       <p>
-        This is the new home of <strong>cyclingtechinsights.com</strong>. Soon you’ll find
-        deep dives on cycling tech, AI‑powered training tools, gear reviews, and
-        affiliate guides to the best products for performance‑focused riders.
+        Cycling Tech Insights covers the intersection of technology and cycling for UK-based
+        riders. Expect honest, long-form reviews and buyer guides covering AI-powered training
+        platforms, GPS head units, smart trainers, power meters, and the software that ties
+        it all together. No sponsored fluff — only gear and tools worth your money.
       </p>
-      <h3>What to expect</h3>
+      <p><strong>What you'll find here:</strong></p>
       <ul>
-        <li>AI‑driven training platforms and bike fit tools</li>
-        <li>Smart trainers, power meters, and head units</li>
-        <li>Weekly roundups of the latest cycling tech launches</li>
+        <li>AI-driven training platforms compared with UK pricing</li>
+        <li>Smart trainer and head unit reviews with UK availability</li>
+        <li>Weekly roundups of the latest UK cycling tech launches</li>
+        <li>Affiliate guides to the best products across Wiggle, Sigma Sport, and Amazon UK</li>
       </ul>
-      <p>
-        Bookmark <a href="https://www.cyclingtechinsights.com">www.cyclingtechinsights.com</a>
-        and check back soon. Behind the scenes, an AI assistant is getting ready to help
-        research and write the content.
-      </p>
-    </section>
+    </div>
+
+    <!-- Articles -->
+    <p class="section-title">Latest Articles</p>
+
+    <div class="articles-grid">
+
+      <div class="article-card">
+        <div class="card-tags">
+          <span class="tag">AI Training</span>
+          <span class="tag">UK</span>
+        </div>
+        <h3><a href="/articles/ai-cycling-training-platforms">Best AI Cycling Training Platforms in the UK (2025)</a></h3>
+        <p>TrainerRoad, Wahoo SYSTM, Xert, and Zwift compared — with UK pricing and a verdict on who each one suits best.</p>
+        <a href="/articles/ai-cycling-training-platforms" class="read-link">Read article →</a>
+      </div>
+
+      <div class="article-card">
+        <div class="card-tags">
+          <span class="tag">GPS &amp; Head Units</span>
+          <span class="tag">Review</span>
+        </div>
+        <h3><a href="/articles/garmin-edge-840-review">Garmin Edge 840 Review — Smart GPS for UK Cyclists</a></h3>
+        <p>A thorough look at Garmin's mid-range GPS: AI-assisted navigation, Real-time Stamina, ClimbPro, and how it compares to the 530 and Wahoo ELEMNT Bolt.</p>
+        <a href="/articles/garmin-edge-840-review" class="read-link">Read article →</a>
+      </div>
+
+      <div class="article-card">
+        <div class="card-tags">
+          <span class="tag">Smart Trainers</span>
+          <span class="tag">Buyer's Guide</span>
+        </div>
+        <h3><a href="/articles/smart-trainers-uk-comparison">Best Smart Trainers in the UK (2025) — AI-Connected Options</a></h3>
+        <p>Wahoo KICKR v6, Tacx Neo 3M, Zwift Hub One, and Elite Direto XR-T compared on price, accuracy, noise, and gradient simulation.</p>
+        <a href="/articles/smart-trainers-uk-comparison" class="read-link">Read article →</a>
+      </div>
+
+      <div class="coming-soon-card">
+        <h3>More articles coming soon</h3>
+        <p>Power meter buyer's guide, Wahoo KICKR Bike review, and a look at AI bike-fit tools available in the UK.</p>
+      </div>
+
+    </div>
+
   </main>
 
   <footer>
-    &copy; <span id="year"></span> Cycling Tech Insights
+    &copy; <span id="year"></span> Cycling Tech Insights &mdash; Independent cycling technology reviews for UK riders.
+    Some links are affiliate links.
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

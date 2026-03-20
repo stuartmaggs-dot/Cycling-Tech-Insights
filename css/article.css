@@ -1,0 +1,159 @@
+/* Cycling Tech Insights — shared article stylesheet */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  color: #111827;
+  background: #f3f4f6;
+}
+
+/* ── Header ───────────────────────────────────────────── */
+header {
+  background: #111827;
+  color: white;
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+header .site-name {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+header a.site-name {
+  color: white;
+  text-decoration: none;
+}
+header a.site-name:hover { opacity: 1; }
+
+/* ── Article layout ───────────────────────────────────── */
+.article-wrap {
+  max-width: 740px;
+  margin: 2rem auto;
+  padding: 0 1rem 4rem;
+}
+
+article {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 2rem 2rem 2.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.08);
+}
+
+/* ── Article meta ─────────────────────────────────────── */
+.article-meta {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.tag {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ── Typography ───────────────────────────────────────── */
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+  color: #111827;
+}
+h2 {
+  font-size: 1.2rem;
+  margin: 2rem 0 0.6rem;
+  color: #1e293b;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.3rem;
+}
+h3 {
+  font-size: 1rem;
+  margin: 1.4rem 0 0.4rem;
+  color: #1e293b;
+}
+p { margin: 0 0 1rem; }
+
+ul, ol {
+  padding-left: 1.4rem;
+  margin: 0 0 1rem;
+}
+li { margin-bottom: 0.35rem; }
+
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Affiliate / buy box ──────────────────────────────── */
+.buy-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.6rem;
+  padding: 1rem 1.25rem;
+  margin: 1.75rem 0;
+}
+.buy-box strong { display: block; margin-bottom: 0.4rem; color: #15803d; }
+.buy-box a {
+  display: inline-block;
+  background: #16a34a;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 0.4rem;
+  font-size: 0.88rem;
+  margin-top: 0.3rem;
+  margin-right: 0.5rem;
+}
+.buy-box a:hover { background: #15803d; text-decoration: none; }
+
+/* ── Comparison table ─────────────────────────────────── */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+.comparison-table th {
+  background: #111827;
+  color: white;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+}
+.comparison-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.comparison-table tr:nth-child(even) td { background: #f9fafb; }
+
+/* ── Back link ────────────────────────────────────────── */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  font-size: 0.88rem;
+  color: #6b7280;
+}
+.back-link:hover { color: #111827; }
+
+/* ── Footer ───────────────────────────────────────────── */
+footer {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #9ca3af;
+  padding: 1.5rem 1rem 2.5rem;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  article { padding: 1.25rem 1rem 1.75rem; }
+  h1 { font-size: 1.4rem; }
+}
