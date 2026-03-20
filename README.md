@@ -80,6 +80,38 @@ A full visual redesign was applied to `index.html` and `css/article.css` with no
 
 ---
 
+## Logo Header (v3 — March 2026)
+
+A logo was added to the repository root and a consistent header bar introduced across all pages.
+
+### Logo files
+
+| File | Use |
+|------|-----|
+| `Blue Black Minimal Initial Letter Company Technology Logo.svg` | Primary logo (vector, served first) |
+| `Blue Black Minimal Initial Letter Company Technology Logo.png` | Fallback if SVG fails to load |
+
+Both files live in the repo root and are served at `/` by Vercel. The `<img>` tag references the SVG via URL-encoded path and falls back to the PNG via the `onerror` attribute — no JavaScript library or build step required.
+
+### What changed
+
+**New shared `.site-header` component**
+
+All pages (homepage and all `/articles/` pages) now open with an identical logo nav bar rendered as `<div class="site-header">`. The bar contains:
+- Left: `.site-logo` — logo image (40 × 40 px, `border-radius: 6px`) + `.header-text` block with `.logo-name` (site title) and `.logo-tagline` ("UK Cycling Tech & AI Tools")
+- Right: navigation links (`Articles`, `About` on the homepage) or a `← All articles` back link on article pages
+
+The bar sits above the existing hero section on the homepage and replaces the old slim text-only nav bar on article pages.
+
+**CSS additions**
+
+- `index.html` inline `<style>`: added `.site-header`, `.site-header .header-inner`, `.site-header .site-logo`, `.site-header .site-logo img`, `.site-header .header-text`, `.site-header .header-text .logo-name`, `.site-header .header-text .logo-tagline`, `.site-header .header-nav`, `.site-header .back-nav` rules, plus a `@media (max-width: 420px)` rule to hide the tagline on very small screens.
+- `css/article.css`: same set of rules replacing the old `header`, `.header-inner`, `header a.site-name`, `.back-nav` rules.
+
+**No structural changes** to article content, URLs, folder layout, or any other CSS.
+
+---
+
 ## Development notes
 
 - **Styling:** All pages share `/css/article.css` (with `@import` for fonts). The homepage has its styles inline (in `<style>`) for a single-file initial load.
