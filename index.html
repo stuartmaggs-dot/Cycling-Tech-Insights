@@ -48,11 +48,80 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-    /* ── Header / Hero ────────────────────────────────────── */
+    /* ── Shared site header (logo nav bar) ─────────────────── */
+    .site-header {
+      background: var(--header-bg);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 1.5rem;
+    }
+    .site-header .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: 64px;
+    }
+    .site-header .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .site-header .site-logo img {
+      height: 40px;
+      width: 40px;
+      border-radius: 6px;
+      display: block;
+      object-fit: contain;
+    }
+    .site-header .header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+    .site-header .header-text .logo-name {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #F5F3EE;
+      line-height: 1.2;
+    }
+    .site-header .header-text .logo-tagline {
+      font-size: 0.7rem;
+      color: #6B6965;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .site-header .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-shrink: 0;
+    }
+    .site-header .header-nav a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #6B6965;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.12s;
+    }
+    .site-header .header-nav a:hover { color: #C8C5BF; text-decoration: none; }
+    /* Hide tagline on very small screens */
+    @media (max-width: 420px) {
+      .site-header .header-text .logo-tagline { display: none; }
+    }
+
+    /* ── Header / Hero (below logo bar) ─────────────────── */
     header {
       background: var(--header-bg);
       color: #E8E6E0;
-      padding: 3.5rem 1.5rem 3rem;
+      padding: 3rem 1.5rem 2.75rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -348,6 +417,26 @@
 </head>
 <body>
 
+  <!-- Shared logo nav bar -->
+  <div class="site-header">
+    <div class="header-inner">
+      <a href="/" class="site-logo">
+        <img src="/Blue%20Black%20Minimal%20Initial%20Letter%20Company%20Technology%20Logo.svg"
+             onerror="this.src='/Blue%20Black%20Minimal%20Initial%20Letter%20Company%20Technology%20Logo.png'"
+             alt="Cycling Tech Insights logo">
+        <div class="header-text">
+          <span class="logo-name">Cycling Tech Insights</span>
+          <span class="logo-tagline">UK Cycling Tech &amp; AI Tools</span>
+        </div>
+      </a>
+      <nav class="header-nav">
+        <a href="/#articles">Articles</a>
+        <a href="/#about">About</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
   <header>
     <span class="site-kicker">UK Cycling Tech</span>
     <h1>Cycling Tech Insights</h1>
@@ -363,7 +452,7 @@
   <main>
 
     <!-- Intro -->
-    <div class="intro-band">
+    <div id="about" class="intro-band">
       <div>
         <h2>About this site</h2>
         <p>Cycling Tech Insights covers the intersection of technology and cycling for UK-based riders. Honest, long-form reviews and buyer guides — no sponsored fluff, only gear and tools worth your money.</p>
@@ -377,7 +466,7 @@
     </div>
 
     <!-- Articles -->
-    <p class="section-label">Latest Articles</p>
+    <p id="articles" class="section-label">Latest Articles</p>
 
     <div class="articles-grid">
 

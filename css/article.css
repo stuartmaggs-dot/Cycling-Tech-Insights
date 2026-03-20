@@ -46,44 +46,72 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { color: var(--accent-dark); text-decoration: underline; }
 
-/* ── Site header (article pages) ─────────────────────────── */
-header {
+/* ── Shared site header (logo nav bar) ───────────────────── */
+.site-header {
   background: var(--header-bg);
-  padding: 0.9rem 1.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 0 1.5rem;
 }
-
-.header-inner {
+.site-header .header-inner {
   max-width: 740px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  height: 64px;
 }
-
-header a.site-name {
-  font-family: var(--font-head);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: #E8E6E0;
+.site-header .site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   text-decoration: none;
+  flex-shrink: 0;
+}
+.site-header .site-logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 6px;
+  display: block;
+  object-fit: contain;
+}
+.site-header .header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+.site-header .header-text .logo-name {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #F5F3EE;
+  line-height: 1.2;
+}
+.site-header .header-text .logo-tagline {
+  font-size: 0.7rem;
+  color: #6B6965;
+  letter-spacing: 0.02em;
+  line-height: 1;
   white-space: nowrap;
 }
-header a.site-name:hover { color: #fff; text-decoration: none; }
-
-.back-nav {
+.site-header .back-nav {
   font-size: 0.8rem;
-  color: #6B6A66;
+  font-weight: 500;
+  color: #6B6965;
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.3rem;
   transition: color 0.12s;
   white-space: nowrap;
+  flex-shrink: 0;
 }
-.back-nav:hover { color: #A8A79E; text-decoration: none; }
+.site-header .back-nav:hover { color: #C8C5BF; text-decoration: none; }
+/* Hide tagline on very small screens */
+@media (max-width: 420px) {
+  .site-header .header-text .logo-tagline { display: none; }
+}
 
 /* ── Article layout ───────────────────────────────────────── */
 .article-wrap {
